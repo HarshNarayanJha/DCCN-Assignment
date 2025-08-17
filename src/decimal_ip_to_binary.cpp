@@ -1,4 +1,5 @@
-// 1. Determine if the IP address is in Class A, B, C, D, or E.
+// 2. Translate dotted decimal IP address into 32 bit address.
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -30,18 +31,16 @@ int main() {
     return 1;
   }
 
-  int firstOctec = ipVec.at(0);
-  if (firstOctec <= 127) {
-    printf("Class A");
-  } else if (firstOctec <= 191) {
-    printf("Class B");
-  } else if (firstOctec <= 223) {
-    printf("Class C");
-  } else if (firstOctec <= 239) {
-    printf("Class D");
-  } else {
-    printf("Class E");
+  int ipInt = 0;
+
+  for (size_t i = 0; i < ipVec.size(); i++) {
+    ipInt = (ipInt << 8) | ipVec.at(i);
+    printf("%08b", ipVec.at(i));
+
+    if (i != ipVec.size() - 1) {
+      printf(".");
+    }
   }
 
-  printf("\n");
+  printf("\n%032b\n", ipInt);
 }
