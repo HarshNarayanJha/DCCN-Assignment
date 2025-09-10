@@ -58,7 +58,5 @@ int main() {
   string destuffed = destuff(stuffed);
   cout << "Destuffed Bits: " << destuffed << '\n';
 
-  cout << "Original Bits == Destuffed Bits: " << (inputBits == destuffed ? 'T' : 'F') << '\n';
-
   return 0;
 }
