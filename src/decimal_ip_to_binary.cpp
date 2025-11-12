@@ -1,5 +1,6 @@
 // 2. Translate dotted decimal IP address into 32 bit address.
 
+#include <bitset>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -35,7 +36,8 @@ int main() {
 
   for (size_t i = 0; i < ipVec.size(); i++) {
     ipInt = (ipInt << 8) | ipVec.at(i);
-    printf("%08b", ipVec.at(i));
+    bitset<8> ipBit(ipVec.at(i));
+    cout << ipBit;
 
     if (i != ipVec.size() - 1) {
       printf(".");
